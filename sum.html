@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <input oninput="debounceSum()" type="number" id="i1"><br>
+    <input oninput="debounceSum()" type="number" id="i2"><br>
+    <!-- <button type="submit" onclick="sum()">sum</button> -->
+    <p id="res"></p>
+   
+    <script>
+
+        //debouncing
+        let time;
+        function debounceSum(){
+            clearTimeout(time);
+             time = setTimeout(function(){
+                sum()
+            },3000)
+            
+        }
+
+        function sum(){
+            let n1 = parseInt(document.getElementById("i1").value);
+            let n2 = parseInt(document.getElementById("i2").value);
+            const ans = document.getElementById("res");
+            
+            ans.innerHTML=n1+n2;
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <input type="number" id="i1"><br>
+    <input type="number" id="i2"><br>
+    <input type="number" id="i3"><br>
+    <button type="submit" onclick="sum()">sum</button>
+    <p id="res"></p>
+   
+    <script>
+        // function sum(){
+        //     const n1 = parseInt(document.getElementById("i1").value);
+        //     const n2 = parseInt(document.getElementById("i2").value);
+        //     const n3 = parseInt(document.getElementById("i3").value);
+        //     const ans = document.getElementById("res");
+        //     fetch("http://localhost:3000/intrest?principal="+n1+"&rate="+n2+"&time="+n3)
+        //     .then(function(response){
+        //         response.text()
+        //         .then(function(ans){
+        //             console.log(ans)
+        //         })
+        // })
+
+     
+        //     //ans.innerHTML=n1+n2;
+        // }
+        async function sum(){
+            const n1 = parseInt(document.getElementById("i1").value);
+            const n2 = parseInt(document.getElementById("i2").value);
+            const n3 = parseInt(document.getElementById("i3").value);
+            const response = await fetch("http://localhost:3000/intrest?principal="+n1+"&rate="+n2+"&time="+n3)
+            const ans = await response.text()
+            console.log(ans);
+        }
+        
+
+
+    </script>
+</body>
+</html>
